@@ -1,0 +1,11 @@
+[Unit]
+Description=Host Metrics Collector
+After=network.target
+
+[Service]
+PrivateTmp=true
+PIDFile=/tmp/metrics-collector.pid
+ExecStart=/usr/bin/metrics-collector --listen_addr 'localhost:33333' --basic_auth_user '' --basic_auth_password '' --enable_network_monitoring --pid_file /tmp/metrics-collector.pid
+
+[Install]
+WantedBy=multi-user.target

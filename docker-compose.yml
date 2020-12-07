@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  metrics:
+    build:
+      context: .
+    environment:
+      BASE_DIR: /host
+      IFACES: enp3s0
+      DISKS: sda,sdb,sdc
+    volumes:
+      - /proc/cpuinfo:/host/proc/cpuinfo:ro
+      - /etc/hostname:/host/etc/hostname:ro
+      - /proc/loadavg:/host/proc/loadavg:ro
+      - /proc/meminfo:/host/proc/meminfo:ro
+      - /sys/:/host/sys/:ro
+      - /proc/stat:/host/proc/stat:ro
+#      - /proc/net/dev:/host/proc/net/dev:ro
