@@ -557,7 +557,6 @@ func PrometheusExporter(config Config) {
 				log.Printf("error starting server: %s. retry %d/%d", err, i, 30)
 				continue
 			}
-
 		}
 
 		log.Fatalf("30 retries to start server exceeded, fatal error")
