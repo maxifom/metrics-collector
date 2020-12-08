@@ -462,70 +462,70 @@ func PrometheusExporter(config Config) {
 	}
 
 	cpuFreqGauge := prometheus.NewGauge(prometheus.GaugeOpts{
-		Name:        "host_metrics_collector_cpu_average_frequency_hz",
+		Name:        "metrics_collector_cpu_average_frequency_hz",
 		Help:        "CPU Average Frequence in Hertz",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	})
 
 	coreCountGauge := prometheus.NewGauge(prometheus.GaugeOpts{
-		Name:        "host_metrics_core_count",
+		Name:        "metrics_collector_core_count",
 		Help:        "Number of cores",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	})
 
 	laGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_load_average",
+		Name:        "metrics_collector_load_average",
 		Help:        "Load average statistics",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"la_type"})
 
 	memoryGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_memory_bytes",
+		Name:        "metrics_collector_memory_bytes",
 		Help:        "Memory and Swap statistics in bytes",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"memory_type"})
 
 	diskIOGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_disk_io",
+		Name:        "metrics_collector_disk_io",
 		Help:        "Disk IO statistics",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"disk_name", "operation_type"})
 
 	diskBytesGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_disk_bytes",
+		Name:        "metrics_collector_disk_bytes",
 		Help:        "Disk bytes statistics",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"disk_name", "operation_type"})
 
 	diskWaitGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_disk_wait_ms",
+		Name:        "metrics_collector_disk_wait_ms",
 		Help:        "Disk wait statistics",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"disk_name", "operation_type"})
 
 	cpuUsageGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_cpu_usage_ms",
+		Name:        "metrics_collector_cpu_usage_ms",
 		Help:        "CPU Usage in ms",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"usage_type"})
 	cpuInterrupts := prometheus.NewGauge(prometheus.GaugeOpts{
-		Name:        "host_metrics_cpu_interrupts",
+		Name:        "metrics_collector_cpu_interrupts",
 		Help:        "CPU interrupts count",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	})
 	cpuContextSwitches := prometheus.NewGauge(prometheus.GaugeOpts{
-		Name:        "host_metrics_cpu_context_switches",
+		Name:        "metrics_collector_cpu_context_switches",
 		Help:        "CPU context switches count",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	})
 	bootTimeGauge := prometheus.NewGauge(prometheus.GaugeOpts{
-		Name:        "host_metrics_boot_time",
+		Name:        "metrics_collector_boot_time",
 		Help:        "Host boot time",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	})
 
 	netBytesGauge := prometheus.NewGaugeVec(prometheus.GaugeOpts{
-		Name:        "host_metrics_net_bytes",
+		Name:        "metrics_collector_net_bytes",
 		Help:        "Network statistics in bytes",
 		ConstLabels: prometheus.Labels{"hostname": hostname},
 	}, []string{"iface", "operation_type"})
