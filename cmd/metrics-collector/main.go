@@ -550,7 +550,17 @@ func PrometheusExporter(config Config) {
 
 	go func() {
 		log.Printf("Starting prometheus metrics server on %s", config.ListenAddr)
-		log.Fatal(http.ListenAndServe(config.ListenAddr, nil))
+		for i := 0; i < 30; i++ {
+			err := http.ListenAndServe(config.ListenAddr, nil)
+			if err != nil {
+				log.Printf("error starting server: %s. retry %d/%d", err, i, 30)
+				continue
+			}
+
+			time.Sleep(time.Second)
+		}
+
+		log.Fatalf("30 retries to start server exceeded, fatal error")
 	}()
 	for {
 		ci, err := ParseCpuInfo(config)
