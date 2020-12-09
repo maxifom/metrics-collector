@@ -307,13 +307,13 @@ func ParseProcStat(c Config) (*ProcStat, error) {
 		return nil, err
 	}
 	return &ProcStat{
-		UserMilliseconds:    user / 10, // (milliseconds in second) / CLK_TCK (default 100) = 10
-		NiceMilliseconds:    nice / 10,
-		SystemMilliseconds:  system / 10,
-		IdleMilliseconds:    idle / 10,
-		IOWaitMilliseconds:  iowait / 10,
-		IRQMilliseconds:     irq / 10,
-		SoftIRQMilliseconds: softirq / 10,
+		UserMilliseconds:    user * 10, // (milliseconds in second) / CLK_TCK (default 100) = 10
+		NiceMilliseconds:    nice * 10,
+		SystemMilliseconds:  system * 10,
+		IdleMilliseconds:    idle * 10,
+		IOWaitMilliseconds:  iowait * 10,
+		IRQMilliseconds:     irq * 10,
+		SoftIRQMilliseconds: softirq * 10,
 		BootTime:            bootTime,
 		Interrupts:          intr,
 		ContextSwitches:     ctxt,
